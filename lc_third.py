@@ -43,3 +43,39 @@ digits = [4,3,2,1]
 so = Solution()
 print(so.plusOne(digits))
 
+
+
+# second solution with the same approach
+class Solution:
+    def plusOne(self, digits:list[int]):
+
+        number = ""
+        for i in digits:
+            number = number + str(i)
+        intnum = int(number)
+        intnum = intnum + 1
+        output=[]
+        for i in str(intnum):
+            output.append(int(i))
+        return output
+
+# third solution with the same approach
+
+class Solution:
+    def plusOne(self, digits:list[int]):
+        nums = int("".join(str(i) for i in digits))
+        nums += 1
+        return [int(x) for x in str(nums)]
+    
+#fourth solution with the math-based approach
+
+class Solution:
+    def plusOne(self, digits:list[int]):
+        for i in reversed(range(len(digits))):  
+            if digits[i] == 9:
+                digits[i] = 0
+            else:
+                digits[i] += 1
+                return digits
+        return [1] + digits
+
